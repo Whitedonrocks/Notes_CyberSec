@@ -129,6 +129,22 @@
 - Bitdefender, Kaspersky, ESET, Norton — real-time protection
 - **Never run two AV products simultaneously** — conflict and performance issues
 
+#### End Point Detection and Response (EDR)
+  - a different method of threat protection.
+  - detect the threat 
+  - investigate the threat 
+  - respond the threat
+
+#### Managed detection and response (MDR)
+  - third party edr services 
+  - manages the entire process
+  - respondds to al issues 
+  - expertise from trained professionals
+
+#### Extended Detection and response XDR
+  - evolition of edr 
+  - add network based detection
+  
 #### Anti-malware Scanning Best Practices
 1. **Keep definitions updated** — new malware released constantly
 2. **Schedule regular full scans** — weekly minimum
