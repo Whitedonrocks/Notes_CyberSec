@@ -18,66 +18,67 @@
 ### 4.1 Ticketing Systems
 
 #### What is a Ticketing System?
-- The **best way to manage support requests** — every issue gets a unique ticket number
-- Tracks the entire lifecycle of a support request: document → assign → resolve → report
-- Usually the **responsibility of the help desk**
-- Examples: ServiceNow, Jira Service Management, Zendesk, Freshdesk, Remedy
+- The **best way to manage support requests** — tracks every issue from start to finish
+- Every support interaction becomes a **ticket** — documented, assigned, resolved, reported
+- Usually the responsibility of the **help desk**
+- Examples: ServiceNow, Jira Service Management, Zendesk, Freshdesk, osTicket (free)
+- **Cybersecurity use:** Ticketing systems create an audit trail — every security incident, change, and resolution is documented
 
 #### Managing a Support Ticket
 
 **Information Gathering:**
-- Collect all relevant details before attempting to fix anything
-- Ask open-ended questions — "What were you doing when this happened?"
-- Reproduce the issue if possible
-- Gather: error messages, screenshots, recent changes made
+- Collect all relevant details before attempting resolution
+- Ask the right questions — reproduce the issue if possible
+- Do not assume — gather facts first
 
 **Applying Context:**
-- Connect the issue to broader context — is this affecting multiple users?
-- Check if related to recent changes — new software, updates, hardware changes
-- Check knowledge base — has this been solved before?
+- What changed recently? New software? Windows update? New hardware?
+- Is this affecting one user or many? Scope of issue?
+- Has this happened before? Previous ticket history?
 
 **Clear and Concise Communication:**
-- Keep user informed throughout the process
-- Use plain language — avoid technical jargon with end users
-- Set realistic expectations — "I will update you by 3pm"
-- Document every action taken in the ticket notes
+- Use plain language — no jargon with end users
+- Set expectations — estimated resolution time
+- Keep user informed of progress
 
-#### Ticket Fields to Know
+#### Ticket Fields — What Every Ticket Contains
 
 **User Information:**
-- Name, contact details, department, manager
-- How to reach them — phone, email, Teams
+- Name, contact details, department
+- User ID / employee number
+- Location — building, floor, desk number
 
 **Device Information:**
-- Make, model, serial number, asset tag
-- Operating system and version
-- Location of device
+- Device name / hostname
+- Make and model
+- Serial number / asset tag
+- Operating system version
 
 **Problem Description:**
-- Detailed description of the issue
+- Clear description of the issue
 - Steps to reproduce
-- When it started, frequency of occurrence
-- Any error messages or codes
+- Error messages — exact text
+- When it started
 
 **Categorisation:**
-- Type of issue: hardware, software, network, security, account
-- Priority: Critical, High, Medium, Low
-- Helps route to the right team
+- Type: hardware, software, network, security, account
+- Priority: critical, high, medium, low
+- Severity: how many users affected
 
 **Escalation:**
 - Tier 1 (help desk) → Tier 2 (specialist) → Tier 3 (vendor/developer)
-- Escalate when: issue beyond current skill level, requires higher access, SLA breach risk
+- Escalate when: issue beyond current skill level, SLA at risk, security incident
 
 **Progress Notes:**
-- Document every step taken — what was tried, what worked, what did not
-- Other technicians can pick up where you left off
-- Legal protection — proof of what was done
+- Document every action taken and result
+- Time-stamped — who did what and when
+- Critical for handover between technicians
 
 **Problem Resolution:**
-- Document the final solution clearly
 - Root cause identified
-- Steps that resolved the issue
-- Prevention recommendations
+- Solution applied
+- User confirmation that issue is resolved
+- Lessons learned for knowledge base
 
 ---
 
@@ -85,295 +86,290 @@
 
 #### What is Asset Management?
 - A **record of every asset** in the organisation
-- Know what you have, where it is, who has it, what condition it is in
-- Associates support tickets with specific devices by make and model
-- Used for: **financial records, audits, depreciation calculations**
+- Know what you have, where it is, who has it, and its status
+- Associates support tickets with specific devices
+- Used for: **financial records, audits, depreciation, compliance**
 
 #### Asset Tags
-- **Physical label** attached to every device — barcode or QR code
-- Unique identifier — scanned to pull up full asset record
-- Links physical device to database entry
-- Deters theft — device is clearly marked as company property
+- Unique identifier attached to every physical asset
+- Barcode, QR code, or RFID tag
+- Scanned to instantly identify device and pull up its record
+- **Cybersecurity use:** Asset tags help identify unauthorised devices on the network
 
 #### CMDB — Configuration Management Database
-- **Central asset tracking system** — single source of truth for all assets
-- Stores: device details, location, assigned user, warranty status, licensing, purchase date, cost
-- Tracks relationships between assets — which server runs which applications
-- Tracks **changes** — who changed what and when
-- **Cybersecurity use:** CMDB reveals unauthorised devices — anything not in CMDB is rogue hardware
-
-**Key CMDB Fields:**
-| Field | Description |
-|---|---|
-| Asset ID / Tag | Unique identifier |
-| Make / Model | Manufacturer and model number |
-| Serial Number | Manufacturer's unique ID |
-| Assigned User | Who currently has it |
-| Location | Building, floor, room |
-| Purchase Date | When acquired |
-| Warranty Expiry | When warranty ends |
-| Licensing | Software licence details |
-| Status | Active, spare, retired, stolen |
+- **Central asset tracking system** — the single source of truth for all IT assets
+- Stores for each asset:
+  - Device details (make, model, serial number, specs)
+  - **Assigned user** — who is responsible for it
+  - **Location** — which office, building, room
+  - **Warranty** information — expiry date, support contract
+  - **Licensing** — software licences assigned to device
+  - Purchase date and cost
+  - Maintenance history
+  - Configuration details
+- **Cybersecurity use:** CMDB enables rapid incident response — instantly know what systems are affected, who to contact, what software is running
 
 #### Procurement Life Cycle
-The process of acquiring new assets:
+The full journey of an asset from need to disposal:
 
-1. **Request** — user or department requests new equipment
-2. **Approval** — manager and budget holder approve
-3. **Negotiation** — IT negotiates price and terms with suppliers
-4. **Purchase** — purchase order raised, invoice received
-5. **Receiving** — asset received, inspected, tagged
-6. **Deployment** — asset configured and assigned to user
-7. **Management** — tracked throughout useful life
-8. **Disposal** — securely decommissioned at end of life
+1. **Request** — user or department requests new hardware/software
+2. **Approval** — manager or IT approves request and budget
+3. **Negotiate with suppliers** — get quotes, compare vendors, negotiate price
+4. **Purchase** — raise purchase order
+5. **Invoice and payment** — receive invoice, process payment
+6. **Receive and configure** — unbox, set up, add to CMDB
+7. **Deploy** — assign to user, record in asset management system
+8. **Maintain** — updates, repairs, support tickets linked to asset
+9. **Depreciation** — track asset value reduction over time (for accounting)
+10. **Disposal** — secure data destruction, remove from CMDB, comply with environmental regulations
 
 ---
 
 ### 4.1 Document Types
 
 #### Incident Reports
-- Documents a **security or operational incident** in detail
-- What happened, when, who was affected, how it was resolved
-- Required for: security policy compliance, legal purposes, insurance claims
-- Used to improve future response — lessons learned
-- **Cybersecurity use:** Incident reports are legally significant — accurate documentation critical
+- Formal documentation of a **security or operational incident**
+- Required by security policy — all incidents must be documented
+- Contains: what happened, when, who was affected, how resolved, lessons learned
+- Used for: compliance, insurance claims, legal proceedings, preventing recurrence
+- **Cybersecurity use:** Incident reports are legally required in many industries — HIPAA, GDPR require breach notification and documentation
 
 #### SOP — Standard Operating Procedures
-- **Step-by-step instructions** for performing routine tasks consistently
-- Organisations have different business objectives — SOPs reflect their specific needs
-- Covers: software installation, upgrade procedures, new user setup, backup procedures
-- **Documentation is the key** — without SOPs knowledge lives in people's heads — risk when staff leave
-- Example: SOP for onboarding a new employee — same process every time, nothing missed
+- Step-by-step instructions for performing **routine tasks**
+- Organisations have different business objectives — SOPs ensure consistency
+- Cover: software installation and upgrades, security configurations, onboarding, troubleshooting steps
+- **Documentation is the key** — if it's not written down, it doesn't exist
+- Benefits: consistency, training new staff, compliance, quality control
+- **Cybersecurity use:** Security SOPs define how to respond to incidents — without them, response is chaotic
 
-#### Onboarding
-- **Bringing a new person into the organisation** — IT's role:
-  - IT agreements signed — acceptable use policy, confidentiality agreement
-  - Create accounts — AD account, email, VPN, application access
-  - Provide required IT hardware — laptop, phone, accessories
-  - Install required software
-  - Provide access to required systems
-  - Security training — policies, phishing awareness
+#### Onboarding Documentation
+- Process of **bringing a new person into the organisation**
+- IT tasks for onboarding:
+  - **IT agreements signed** — acceptable use policy, NDA, security policy
+  - **Create accounts** — Active Directory, email, applications
+  - **Provide required IT hardware** — laptop, phone, access card
+  - **Configure device** — install required software, apply security policies
+  - **Provide access** — network shares, applications, VPN
+  - Train on security policies and acceptable use
+- **Cybersecurity use:** New accounts should follow least privilege — only access needed for role
 
-#### Offboarding
-- **Removing a departing employee** — must be predefined and followed every time
-- **What happens to hardware:** collect laptop, phone, access cards, tokens
-- **What happens to data:** transfer ownership of files, archive email, revoke cloud access
-- **Disable accounts immediately** — on last day or when they leave
-- Never delete accounts immediately — preserve audit trail
-- **Cybersecurity use:** Offboarding failures are a major security risk — ex-employees with active accounts is a top insider threat vector
+#### Offboarding Documentation
+- Process of **removing a departing employee** from all systems
+- **Must be predefined** — clear process executed immediately on departure
+- IT tasks:
+  - **Disable accounts** (not delete — preserve audit trail)
+  - Revoke VPN and remote access
+  - Recover all company hardware — laptop, phone, access cards
+  - **Determine what happens to data** — archive emails, transfer files to manager
+  - Remove from all systems and groups
+  - Change shared passwords the employee knew
+- **Cybersecurity use:** Insider threat — disgruntled employees cause 60% of data breaches. Account must be disabled the moment they leave — before they leave if possible.
 
 #### SLA — Service Level Agreement
-- **Contract defining minimum service standards**
-- Specifies: uptime guarantee, response times, resolution times, penalties for breach
-- Example: ISP SLA guarantees 99.9% uptime — if breached, customer gets credit
-- Internal IT SLA: helpdesk responds to critical issues within 1 hour
-- **Cybersecurity use:** SLA defines recovery time objectives — important for business continuity planning
+- **Minimum terms for services provided** — contractual commitment
+- Contract between service provider and customer
+- Defines: uptime guarantees, response times, resolution times, penalties for failure
+- Example: ISP SLA — 99.9% uptime, 4-hour response to outages
+- **Cybersecurity use:** Security SLAs define incident response times — how quickly must a breach be contained?
 
 #### Knowledge Base and Articles
-- **External sources** — vendor documentation, community forums, manufacturer guides
-- **Internal documentation** — how-to guides, known issue resolutions, troubleshooting steps
-- **Find solutions quickly** — technicians search before spending time investigating
-- Reduces repeat work — solved once, documented, anyone can use it
-- Grows over time — each resolved ticket adds to the knowledge base
+- **Repository of solutions** to common problems
+- Sources:
+  - **External** — vendor documentation, community forums, online resources
+  - **Internal** — organisation-specific solutions, workarounds, procedures
+- Purpose: find solutions quickly without reinventing the wheel
+- Build from resolved tickets — every solution becomes a knowledge base article
+- **Cybersecurity use:** Security knowledge base includes: IOCs (Indicators of Compromise), known attack patterns, response procedures
 
 ---
 
 ### 4.2 Change Management
 
 #### What is Change Management?
-- **Formal process for managing changes** to IT systems
-- One of the most common sources of risk in enterprise IT
-- Often overlooked or ignored — causes outages and security incidents
+- Formal process for managing **any change to IT systems**
+- One of the **most common sources of risk** in enterprise — changes break things
+- Often overlooked or ignored — but critical for stability
 - **Nothing changes without going through the process**
-- Goal: minimise risk while allowing necessary changes
 
 #### Why Change Management Matters
-- Uncontrolled changes cause outages — most downtime is self-inflicted
-- Changes can have unexpected ripple effects on other systems
-- Without documentation — cannot roll back effectively
-- Regulatory compliance often requires change documentation
+- Uncontrolled changes cause: outages, security vulnerabilities, compliance failures
+- Documented changes enable: rollback, troubleshooting, audit trails
+- **Cybersecurity use:** Unauthorised changes are a major security risk — attacker making changes to firewall rules would show up in change management
 
 ---
 
 #### Change Management Process
 
-**Step 1 — Change Request:**
-- Formal request submitted — usually a change request form
-- Nothing gets missed — structured template
-- Usually a transparent process — visible to all stakeholders
+**1. Change Request:**
+- Formal paperwork — nothing gets missed
+- Usually transparent — visible to all stakeholders
+- Submitted by person requesting change
 
-**Step 2 — Purpose of the Change:**
-- Why is this change needed?
-- Valid reasons: application upgrade, security fix, performance improvement, compliance
-- There needs to be a **good documented reason** — not just "because"
+**2. Purpose of the Change:**
+- Why are we doing this? Must have a good reason
+- Common reasons:
+  - Application upgrades
+  - Security fixes / patch management
+  - Performance improvements
+  - Hardware replacement
+  - Regulatory compliance
 
-**Step 3 — Scope of the Change:**
-- What systems are affected?
+**3. Scope of the Change:**
+- What exactly will be changed?
+- What systems will be affected?
+- How long will it take?
 - A single change can have far-reaching effects — map all dependencies
-- How long will the change take?
-- Who needs to be notified?
 
-**Step 4 — Risk Analysis:**
+**4. Change Types:**
+
+| Type | Risk Level | Urgency | Approval |
+|---|---|---|---|
+| **Standard** | Low | Routine | Pre-approved — no board needed |
+| **Normal** | Medium | Not urgent | Full CAB review |
+| **Emergency** | High | Urgent | Expedited approval |
+
+**5. Date and Time of Change:**
+- **Maintenance window** — scheduled time when changes are allowed
+- **On-demand change windows** — ad-hoc approved windows
+- **Regularly scheduled downtime** — weekly/monthly maintenance periods
+- **Change freeze** — period when NO changes allowed (e.g. before major holidays, during critical business periods)
+
+**6. Affected Systems and Impact:**
+- List every system that will be affected
+- Estimate downtime — communicate to users in advance
+- Test in sandbox first — always
+
+**7. Risk Analysis:**
 - What could go wrong?
-- What is the probability of failure?
+- Probability × Impact = Risk level
 - What is the impact if it fails?
-- Risk level determines approval requirements
 
-**Step 5 — Rollback Plan:**
-- **Always have a way to revert the change**
-- What is the exact procedure to undo the change if it fails?
-- Always have backups before making any change
-- Test the rollback procedure — not just the change itself
+**8. Rollback Plan:**
+- **Always have a way to revert** — before making any change
+- Always have backups taken immediately before change
+- Test the rollback plan — don't assume it works
 
-**Step 6 — Backup Plan (Plan B, C, D):**
-- What if something goes wrong?
-- Example: installing a firewall update — what if it breaks connectivity?
-  - Plan B: rollback to previous version
-  - Plan C: bypass firewall temporarily
-  - Plan D: activate backup firewall
-- Always complete the mission — have alternatives ready
+**9. Backup Plan (Plan B, C, D):**
+- What if the change fails partway through?
+- What if the rollback also fails?
+- Example: installing firewall update — what if new firmware is corrupt?
+- Multiple contingency plans prepared before starting
 
-**Step 7 — Sandbox Testing:**
-- Test the change in an **isolated environment** before production
+**10. Sandbox Testing:**
+- Test change in **isolated environment** that mirrors production
 - Confirm the change works as expected
 - Confirm the rollback plan works
-- Identify problems without affecting real users
+- Never test a critical change in production first
 
-**Step 8 — Responsible Staff Members:**
-- Change management is a **team effort**
-- IT team — implements the change
-- Business customer — confirms requirements and acceptance
-- Organisation sponsor — authorises and funds the change
+**11. Responsible Staff Members:**
+- A team effort — not one person's decision
+- IT team — technical implementation
+- Business customer — accepts the risk and downtime
+- Organisation sponsor — authorises the change
 
-**Step 9 — Date and Time:**
-- **Maintenance window** — scheduled time when changes are allowed
-- **On-demand change windows** — for urgent but non-emergency changes
-- **Regularly scheduled downtime** — predictable windows users expect
-- **Change freeze** — period when NO changes allowed (holidays, end of financial year, major events)
+**12. Change Advisory Board (CAB) and Approvals:**
+- **Go / No-Go decision**
+- All important parts of the organisation represented
+- Some changes have priority — fast-tracked through board
+- Board reviews: purpose, scope, risk, rollback plan
 
-**Step 10 — Change Board Approval (CAB):**
-- **CAB — Change Advisory Board** — reviews and approves changes
-- **Go/No-Go decision** — all stakeholders represented
-- Critical, high-risk changes require CAB approval
-- Emergency changes may have expedited approval process
-- Some changes have **priority** — security patches may be fast-tracked
+**13. Implementation and Peer Review:**
+- Implement during approved window
+- Another technician reviews the change — fresh eyes catch mistakes
+- Document every step taken
 
-**Step 11 — Implementation and Peer Review:**
-- Implement the change following documented procedure
-- Peer review — another technician verifies the work
-- Document everything done during implementation
-
-**Step 12 — End User Acceptance:**
-- User confirms the change achieved its goal
-- System functioning as expected
-- Close the change ticket
-
----
-
-#### Change Types
-
-| Type | Risk Level | Process |
-|---|---|---|
-| **Standard** | Low | Pre-approved — no CAB needed — routine, well-understood changes |
-| **Normal** | Medium | Full CAB process — not urgent, scheduled |
-| **Emergency** | High | Expedited approval — critical security issue or major outage |
+**14. End-User Acceptance:**
+- Confirm with users that the change achieved its purpose
+- Sign-off from business customer
+- Close the change request
 
 ---
 
 ### 4.3 Managing Backups
 
-#### Why Backups Matter
-- Protect against: hardware failure, ransomware, accidental deletion, corruption, disaster
-- **A backup you cannot restore from is worthless** — test regularly
-- Many organisations discover their backups don't work during an actual disaster
-
----
+#### Why Backups Are Critical
+- Hardware fails, ransomware encrypts, humans delete things accidentally
+- Without backups: data is permanently lost
+- **A backup you haven't tested is not a backup** — test regularly
 
 #### Backup Types
 
 **Full Backup:**
-- **Backs up everything** — entire selected dataset
-- Longest backup time — most storage space required
+- Backs up **everything** — all selected data
+- **Longest backup time** — may be impractical every day
 - **Fastest restore** — everything in one backup set
-- May be impractical to run every day for large datasets
-- Typically run weekly
+- Usually done weekly or monthly
 
 **Differential Backup:**
-- Full backup taken first (on Sunday)
+- Full backup taken first as baseline
 - Each subsequent backup contains **all data changed since the last FULL backup**
-- Monday backup = changes since Sunday
-- Wednesday backup = changes since Sunday (includes Monday's changes too)
-- Backups get **larger each day** until next full backup
-- **Restore = full backup + latest differential** (2 sets)
-- Faster restore than incremental — only 2 sets needed
+- Gets larger over time — each differential is bigger than the last
+- **Faster backup than full** — only changed data
+- **Restore requires: Full backup + latest differential only**
+- Medium restore complexity — two items needed
 
 **Incremental Backup:**
-- Full backup taken first (on Sunday)
-- Each subsequent backup contains **only data changed since the last backup of ANY type**
-- Monday backup = changes since Sunday
-- Wednesday backup = changes since Monday only
-- Backups stay **small** — only daily changes
-- **Restore = full backup + ALL incrementals in order** (many sets)
-- Slower restore — must apply each incremental in sequence
+- Full backup taken first as baseline
+- Each subsequent backup contains **only data changed since the last backup of ANY type** (full or incremental)
+- **Fastest backup** — smallest amount of data each time
+- **Slowest restore** — need full backup + EVERY incremental in sequence
+- **Restore requires: Full backup + all incrementals in order**
 
 **Synthetic Full Backup:**
-- **Creates a full backup** without running a full backup against live data
-- Takes existing full backup + incrementals → combines them into new synthetic full
-- Reduces backup window — no need to re-read all data from source
-- Server does the work — not the live system
+- Created from existing full + incrementals — no backup window needed
+- Server synthesises a new full backup from existing backups
+- Combines benefits: fast backup (incremental) + fast restore (full)
+- No impact on production systems during creation
 
----
+#### Backup Types Summary Table
 
-#### Backup Comparison Summary
+| Type | What is Backed Up | Backup Speed | Restore Speed | Restore Needs |
+|---|---|---|---|---|
+| **Full** | Everything | Slowest | Fastest | Full backup only |
+| **Differential** | Changes since last FULL | Medium | Medium | Full + latest differential |
+| **Incremental** | Changes since last backup | Fastest | Slowest | Full + ALL incrementals |
+| **Synthetic Full** | Server-created full | No window needed | Fastest | Synthetic full only |
 
-| Type | What it backs up | Backup Speed | Storage Used | Restore Speed | Restore Uses |
-|---|---|---|---|---|---|
-| **Full** | Everything | Slowest | Most | Fastest | Full only |
-| **Differential** | Changes since last FULL | Medium | Medium (grows daily) | Fast | Full + latest differential |
-| **Incremental** | Changes since last backup | Fastest | Least | Slowest | Full + all incrementals |
-| **Synthetic Full** | Everything (computed) | Fast | Most | Fastest | Synthetic full only |
-
-**Exam tip:** Differential vs Incremental is heavily tested — know the difference clearly.
+**Exam tip:** Differential vs Incremental is heavily tested — know the difference in what they back up and what's needed for restore.
 
 ---
 
 #### Backup Testing
-- **It is not enough to perform the backup** — must verify it works
-- **Disaster recovery testing** — simulate a real recovery scenario
-- **Confirm the restoration** — actually restore files and verify they are intact and usable
-- **Periodic audits** — regular scheduled backup verification
-- Test different scenarios: single file recovery, full system recovery, bare metal restore
+- **Not enough to perform the backup** — must verify it works
+- **Disaster recovery testing** — simulate actual failure scenario
+- **Confirm the restoration** — actually restore from backup and verify data integrity
+- **Periodic audits** — review backup logs, check for failures
+- Test restoration at least quarterly — annually at minimum
+- **Cybersecurity use:** Ransomware gangs now target backup systems first — verify backups are offline or air-gapped
 
 #### Recovery Options
-- **In-place / Overwrite** — restore over existing system — overwrites current data
-- **Alternative location** — restore to different system or folder — preserves current state
-- Always test restore to alternative location first — non-destructive
+- **In-place / Overwrite** — restore to same location — overwrites existing data
+- **Alternative location** — restore to different server/path — safer, preserves original
 
 #### On-Site vs Off-Site Backups
 
-**On-site:**
-- Fast access — restore quickly
-- Risk: same disaster that affects production also affects backup (fire, flood, theft)
+| | On-Site | Off-Site |
+|---|---|---|
+| **Speed** | Fast restore | Slower restore |
+| **Cost** | Lower | Higher |
+| **Risk** | Fire/flood destroys both data and backup | Protected from local disasters |
+| **Examples** | External HDD, NAS, tape library | Cloud backup, remote data centre, tape vault |
 
-**Off-site:**
-- Protected from local disaster
-- Slower access — must retrieve or download
-- Cloud backup = off-site by definition
-- **Cybersecurity use:** Ransomware targets connected backup systems — off-site/offline backups are ransomware-proof
+**Best practice:** Both on-site AND off-site — different risks covered
 
-#### GFS — Grandfather-Father-Son Backup Rotation
-- Three separate backup rotations running simultaneously:
-  - **Son** — daily backups (kept for 1 week)
-  - **Father** — weekly backups (kept for 1 month)
-  - **Grandfather** — monthly backups (kept for 1 year)
-- Provides multiple recovery points going back in time
-- Balance between storage cost and recovery options
+#### Grandfather-Father-Son (GFS) Rotation
+- Three separate backup rotations — different frequencies:
+  - **Son** — daily backups — kept for one week
+  - **Father** — weekly backups — kept for one month
+  - **Grandfather** — monthly backups — kept for one year
+- Provides multiple recovery points going back up to a year
+- Minimises media usage — older backups cover longer periods
 
-#### 3-2-1 Backup Rule
-- **3** — three copies of data should always be available
-- **2** — two different types of media (e.g. internal drive + external drive + cloud)
-- **1** — one copy should be off-site (cloud counts)
-- **Cybersecurity use:** Ransomware cannot encrypt what it cannot reach — offline/off-site backup is immune
+#### 3-2-1 Backup Rule — Must Memorise
+- **3** copies of data should always be available
+- **2** different types of media should be used (e.g. HDD + cloud)
+- **1** copy should be offsite (cloud, remote location, tape vault)
+- **Cybersecurity use:** Ransomware cannot encrypt offline/offsite backups — 3-2-1 ensures recovery even from ransomware
 
 ---
 
@@ -381,179 +377,147 @@ The process of acquiring new assets:
 
 #### What is ESD?
 - **Electrostatic Discharge** — sudden flow of static electricity between objects
-- The static shock you feel touching a doorknob after walking on carpet
-- **Very damaging to computer components** — can destroy chips instantly
-- Even undetectable ESD (below human feeling threshold ~3,000V) can damage components
-- Components most at risk: RAM, CPU, GPU, motherboard, SSD
+- The shock you feel touching a doorknob after walking on carpet
+- **Can be very damaging to computer components** — even discharges you cannot feel (below 3,000V human threshold) can destroy sensitive electronics
+- CMOS chips, CPUs, RAM, and other ICs can be permanently damaged by ESD
 
 #### Controlling ESD
 
 **Humidity:**
-- **Humidity above 60%** helps control ESD — moist air dissipates static
-- Dry environments (below 30%) dramatically increase ESD risk
-- Server rooms maintain controlled humidity
+- Humidity **over 60%** helps control ESD — moisture dissipates static charge
+- Dry air (winter, air conditioning) increases ESD risk
+- Data centres maintain controlled humidity
 
 **Self-Grounding:**
-- Touch a **metal part of the computer case** (unpainted) before touching components
-- Discharges any static you are carrying before touching sensitive parts
-- Do this every time before reaching inside a computer
+- Touch a metal part of the case before handling components
+- Equalises static charge between you and the equipment
 
 **Anti-Static Wrist Strap:**
-- **Most effective ESD protection** — worn on wrist, connected to ground point
-- Continuously drains static as it builds up
-- Clip to unpainted metal chassis of computer
-- Must be worn throughout entire work session
+- Most effective personal ESD protection
+- Connects your wrist to ground via resistor — continuously drains static charge
+- Must be worn against skin — not over clothing
+- Test strap regularly — broken strap provides no protection
 
 **Anti-Static Mat:**
-- Place on workbench — components placed on mat are grounded
-- Combined with wrist strap = full ESD protection
-- Mat connects to same ground point as wrist strap
+- Work surface that dissipates static charge
+- Components placed on mat are protected
+- Connect mat to ground
 
 **Anti-Static Pad:**
-- Portable version of anti-static mat
-- Use when working at a location without a dedicated workbench
+- Similar to mat — portable version
+- Place under components while working
 
-**Anti-Static Bags:**
-- **Pink or metallic silver bags** for storing and transporting components
-- Never store components on regular plastic bags — generate static
-- Always keep components in anti-static bags when not installed
+**Anti-Static Bag:**
+- For storing and transporting components
+- **Never place components ON TOP of an anti-static bag** — outside is not protected, only inside
+- Pink/silver metallic bags — for storage and shipping
 
 #### Component Handling and Storage
-- **Try not to touch components directly** — hold by edges, avoid PCB traces and chips
-- **Never touch RAM contacts** or CPU pins directly
-- Store in **HVAC-regulated environment** — controlled temperature and humidity
-- **Avoid high humidity** — causes corrosion on contacts
-- **Store in original packaging** — designed for ESD protection and physical protection
+- **Try not to touch components directly** — hold by edges, avoid touching chips and connectors
+- **Store in HVAC-regulated environment** — temperature and humidity controlled
+- **Avoid high humidity** — can cause corrosion and condensation
+- **Store in original packaging** — anti-static bags, foam padding
+- Handle circuit boards by edges — avoid touching gold connectors
 
 ---
 
 ### 4.4 Safety Procedures
 
 #### Electrical Safety
+- **Never work on powered equipment** — power off and unplug before opening
+- **Capacitors hold charge** after power removed — can deliver lethal shock even unplugged
+  - CRT monitors, UPS systems, power supplies — dangerous after power removed
+  - Allow capacitors to discharge before working — can take minutes
+- **One hand rule** — keep one hand behind your back or in pocket when probing live circuits — prevents current flowing across chest through heart
+- **High voltage warning labels** — never open equipment with these labels without training
+- Laser printers — **fuser assembly** runs at ~200°C — allow to cool before servicing
 
-**Power Off Before Working:**
-- Always power off and **unplug** before working inside a computer
-- Laptops: remove battery AND unplug power adapter
-- Servers: shut down properly, unplug all power cables
-
-**Capacitors:**
-- Hold electrical charge even after power removed
-- CRT monitors and power supplies — dangerous capacitors
-- **Never open a PSU or CRT** — capacitors can discharge fatally
-- Wait several minutes after unplugging before touching internal components
-
-**High Voltage Warning:**
-- Laser printer fuser assembly — extremely hot AND high voltage
-- UPS (Uninterruptible Power Supply) — contains large batteries, high current
-- Always treat electrical equipment as live until confirmed otherwise
-
-#### Physical Safety
-
-**Lifting Techniques:**
-- Heavy equipment: bend knees, keep back straight, lift with legs
-- Get help for items over 20kg — server equipment is very heavy
-- Use proper lifting equipment for rack-mounted servers
-
-**Rack Safety:**
-- Never extend more than one rack-mounted server at a time — rack can tip
-- Use rack stabilisers and bolt racks to floor
-- Fill empty rack spaces with blank panels — maintains airflow
-
-**Cable Management:**
-- Keep cables organised and secured — trip hazard
-- Use cable ties, cable trays, cable management arms
-- Label cables clearly — prevents accidental disconnection
+#### Lifting Safety
+- **Lift with legs not back** — bend knees, keep back straight
+- **Team lift** for heavy items — servers, UPS units, large printers
+- Get help for anything over 20kg (approximately)
+- Use **equipment trolleys** for moving heavy server equipment
+- Clear path before moving equipment
 
 #### Fire Safety
-
-**Fire Extinguisher Types:**
-| Class | Fire Type | Extinguisher |
-|---|---|---|
-| A | Wood, paper, cloth | Water, foam |
-| B | Flammable liquids | CO2, foam, dry powder |
-| C | Electrical fires | **CO2 or dry powder only** — NEVER water |
-| D | Metal fires | Dry powder |
-
-- **Class C — Electrical fires:** always use CO2 or dry chemical
-- Water on electrical fire = electrocution risk
-- Know location of nearest fire extinguisher before starting work
+- **Never use water on electrical fire** — electrical fires require Class C extinguisher
+- **Fire extinguisher types:**
+  - **Class A** — ordinary combustibles (wood, paper)
+  - **Class B** — flammable liquids
+  - **Class C** — electrical equipment ← most relevant for IT
+  - **Class D** — metal fires
+  - **ABC extinguisher** — covers most situations
+- Know fire exit locations
+- Never block fire exits with equipment
 
 #### Chemical Safety
+- **SDS — Safety Data Sheet** (formerly MSDS — Material Safety Data Sheet)
+  - Document describing hazards, handling, storage, and disposal of chemicals
+  - Required for all hazardous materials in workplace
+  - Toner, cleaning solvents, batteries all have SDS
+- **Toner** — fine particles, potential carcinogen — never breathe, use toner vacuum
+- **Batteries** — lithium batteries can cause fire if punctured or swollen
+- **Cleaning solvents** — isopropyl alcohol is flammable — keep away from heat
 
-**Material Safety Data Sheet (MSDS) / Safety Data Sheet (SDS):**
-- Document describing safe handling of chemicals
-- Required for all chemical products
-- Includes: hazards, first aid, storage, disposal procedures
-- Know where MSDS/SDS are kept for all chemicals you use
+#### Environmental Safety
+- **Proper disposal** of hazardous materials:
+  - **Batteries** — lithium, NiMH — must be recycled, not landfill
+  - **CRT monitors** — contain lead — hazardous waste disposal required
+  - **Toner cartridges** — recycle through manufacturer programs
+  - **Fluorescent bulbs** — contain mercury — special disposal
+- **WEEE compliance** (EU) — Waste Electrical and Electronic Equipment directive
+- E-waste recycling programs — many manufacturers offer take-back programs
 
-**Printer Toner:**
-- Fine particles — avoid breathing toner dust
-- Do not use regular vacuum — toner passes through filters
-- Use toner-specific vacuum or damp cloth
-- Wash hands after handling toner cartridges
+#### Personal Protective Equipment (PPE)
+- **Safety glasses** — when working with components that may break or spray
+- **Anti-static strap** — ESD protection
+- **Gloves** — when handling hot components or chemicals
+- **Dust mask** — when working in dusty environments or cleaning printers
 
-**Battery Disposal:**
-- Lithium batteries — do not dispose in regular rubbish
-- Take to designated recycling point
-- Swollen batteries — do not puncture, handle carefully
-
-#### Environmental Controls
-
-**Temperature and Humidity:**
-- Recommended server room: **18-27°C (64-80°F)**
-- Recommended humidity: **40-60%**
-- Hot aisle/cold aisle rack arrangement — maximises cooling efficiency
-- HVAC failure = potential thermal shutdown of all equipment
-
-**Ventilation:**
-- Proper airflow around equipment
-- Never block vents on computers or servers
-- Remove blanking panels from racks only when equipment is installed
+#### Workspace Safety
+- **Keep workspace clean** — clutter causes accidents
+- **Cable management** — loose cables are trip hazards
+- **Tools in proper storage** — prevent falls and injuries
+- **Proper lighting** — prevent eye strain and mistakes
+- **No food or drinks near equipment** — spills cause damage and safety hazards
 
 ---
 
 ## 🔑 Exam Focus Summary
 
 **Ticketing Systems:**
-- Document → Assign → Resolve → Report
-- User info, device info, categorisation, escalation, progress notes, resolution
+- Document, assign, resolve, report — every ticket
+- Escalation tiers: Tier 1 → 2 → 3
+- Progress notes critical for handover
 
 **Asset Management:**
-- CMDB = central asset tracking
-- Asset tag = unique physical identifier
-- Procurement lifecycle = request → approve → purchase → deploy → manage → dispose
-
-**Document Types:**
-- SOP = step-by-step operational procedures
-- SLA = minimum service contract terms
-- Onboarding = create accounts + provide hardware + sign agreements
-- Offboarding = disable accounts immediately + collect hardware
+- CMDB = central asset tracking database
+- Asset tags for physical identification
+- Procurement lifecycle — request to disposal
 
 **Change Management:**
-- Nothing changes without the formal process
-- Always have rollback plan + backups before changing
+- Change types: Standard (low), Normal (medium), Emergency (high)
+- Always have rollback plan AND backup plan
 - Sandbox test before production
-- CAB = Change Advisory Board approves changes
-- Standard (low) → Normal (medium) → Emergency (high)
+- CAB = Change Advisory Board — go/no-go
 - Change freeze = no changes during critical periods
 
-**Backup Types:**
+**Backup Types — Most Tested:**
 - Full = everything, slowest backup, fastest restore
-- Differential = since last FULL, medium storage, 2 sets to restore
-- Incremental = since last backup, smallest, slowest restore (many sets)
+- Differential = since last FULL, medium speed, needs full + differential
+- Incremental = since last backup, fastest backup, slowest restore, needs all incrementals
 - 3-2-1 rule = 3 copies, 2 media types, 1 offsite
 
 **ESD:**
 - Anti-static wrist strap = most effective protection
-- Anti-static bag = pink or silver metallic
-- Humidity >60% reduces ESD risk
-- Touch metal chassis before touching components
+- Never place components ON TOP of anti-static bag
+- Humidity over 60% helps control ESD
 
 **Safety:**
-- Class C fire (electrical) = CO2 or dry chemical — NEVER water
-- Never open PSU or CRT — dangerous capacitors
+- Class C extinguisher for electrical fires — NEVER water
 - Lift with legs not back
-- MSDS/SDS = chemical safety documents
+- SDS = Safety Data Sheet for hazardous materials
+- Capacitors hold charge after power removed — dangerous
 
 ---
 
@@ -561,6 +525,6 @@ The process of acquiring new assets:
 -
 
 ## 3 Key Things I Learned
-1. Differential vs Incremental backup — differential grows daily (all changes since full), incremental stays small (only today's changes) — differential restores faster, incremental uses less storage
-2. Change management always requires a rollback plan AND sandbox testing before production — most IT outages are self-inflicted through uncontrolled changes
-3. Class C electrical fires require CO2 or dry chemical extinguisher — water causes electrocution — know fire extinguisher classes for the exam
+1. Differential backup stores everything since last FULL — incremental stores only since last backup of any type — differential is faster to restore (2 items) but slower to backup than incremental
+2. 3-2-1 backup rule — 3 copies, 2 media types, 1 offsite — ransomware cannot encrypt offline backups — this is why 3-2-1 is the gold standard
+3. Change management always requires a rollback plan AND a backup plan — never make a production change without both — one of the most common causes of enterprise outages is uncontrolled changes
