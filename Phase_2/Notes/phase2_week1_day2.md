@@ -5,7 +5,10 @@
 ---
 
 ## Videos Watched
-- ✅ Day 2 — Interfaces, Cables, TCP/IP Model, OSI Model
+- ✅ Day 2 — Interfaces, Cables
+- ✅ Day 2-Lab — Connecting Devices
+- ✅ Day 3 — How the TCP/IP MOdel Actually Works
+- ✅ Day 3-Lab — OSI Model
 
 ---
 
