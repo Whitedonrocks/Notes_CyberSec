@@ -5,8 +5,8 @@
 ---
 
 ## Videos Watched
-- ✅ Day 3 — Cisco IOS CLI & Basic Configuration
-- ✅ Day 3-Lab — Basic Device Security
+- ✅ Day 4 — Cisco IOS CLI & Basic Configuration
+- ✅ Day 4-Lab — Basic Device Security
 
 ---
 
