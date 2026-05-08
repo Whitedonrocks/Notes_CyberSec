@@ -5,9 +5,9 @@
 ---
 
 ## Videos Watched
-- ✅ Day 5 — IPv4 Addressing Part 1
-- ✅ Day 5 — IPv4 Addressing Part 2
-- ✅ Day 5 Lab — Configuring IP Addresses
+- ✅ Day 7 — IPv4 Addressing Part 1
+- ✅ Day 8 — IPv4 Addressing Part 2
+- ✅ Day 8 Lab — Configuring IP Addresses
 
 ---
 
