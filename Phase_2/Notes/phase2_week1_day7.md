@@ -1,144 +1,395 @@
-IPv4 Header
+# CCNA 200-301 — Phase 2 Week 1 Day 7 Notes
 
-        | Field |
-        |---|
-        | Version |
-        | Header Length |
-        | Type of Service (TOS) |
-        | Total Length |
-        | Identification |
-        | Flags |
-        | Fragment Offset |
-        | TTL |
-        | Protocol |
-        | Header Checksum |
-        | Source Address |
-        | Destination Address |
-        | Options |
-        | Data |
+**Lab Files:** https://drive.google.com/drive/folders/1PwK_jWqfUtOjV7gHt8ODutq9QA5cxCgi
 
+---
 
+## Videos Watched
+- ✅ Day 10 — IPv4 Header
+- ✅ Day 11 — Routing Fundamentals (Part 1)
+- ✅ Day 11 — Static Routing (Part 2)
+- ✅ Day 11 Lab — Configuring Static Routes
+- ✅ Day 11 Lab — Troubleshooting Static Routes
 
+---
 
-        version     identifies the version of IP used only 2 ip IpV4 and Ipv6   4 bits 
-        Header Length =indicated the total length of the header as the final field of header options is variable in length 
-                specified the lenght of header in 4 byte increments min value is 5 =20 bytes max value 15 15x4=60 bytes
+## Key Concepts
 
-        TOS 
-        DSCP Differentiated services code point length 6 bits 
-        used for Qos 
-        usewd to priority delay sensitive data 
-        ECN Explicit Congestion Notification 2 bits
-        provides end to end notification of netowrk congestion without dropping packet
+### IPv4 Header
 
-        Total Length Field  !6 bits
-        indicated the total length of the packet l3 header +l4 segment 
-        measured in bytes  min value 20 max value 65535
+| Field |
+|---|
+| Version |
+| Header Length |
+| Type of Service (TOS) |
+| Total Length |
+| Identification |
+| Flags |
+| Fragment Offset |
+| TTL |
+| Protocol |
+| Header Checksum |
+| Source Address |
+| Destination Address |
+| Options |
+| Data |
 
-        Identification length 16 bits
-        if packet is gragmanted due to being too large this field us use to identify wihch packet the fragement belongs to 
-        all fragments of the same value in this field 
-        packet are fragmented if larger than MTU Maximum transmission unit is usally 1500
+---
 
-        Flags 3 bits
-        used to control identify fragmeents
-        bit 0 reserved always set to 0
-        bit 1 dont fragment DF bit used to indicate a packet that should not be fragmeneted 
-        but 2 more fragments MF bit set to 1 if there are more fragments in the packet set to 0 for the last fragments 
+### Version Field
 
-        Fragement offest 13 bits
-        used to indicate the posotion of the fragmeent with the original unfragmetted packet 
+- Identifies IP version
+- Two versions:
+  - IPv4
+  - IPv6
 
-        TTL 8 bits
-        a router will drop a packet with a ttl of 0 
-        used to prevent infinited loops 
-        originally designed to indicated the packet maximum lifetime in seconds 
-        in pratice indicated a hop count 
+- Size:
+  - 4 bits
 
-        Protocol 8 bits
-        indicated tthe protocol of the encapsulated l4PDU  
-        value of 6 TCP
-        value of 17 UDP
-        value of 1 ICMP
-        value of 89 OSPF Dynamic routing protocol 
+---
 
-        Headercheck sum 16 bits
-        a calculated checksum used to check for errors in the Ipv4 header
+### Header Length (HL)
 
-        Source IP destination IP length 32 bit each 
+- Indicates total size of IPv4 header
+- Measured in 4-byte increments
 
-        optional : 0-320 bits
-        rarely used 
-        if HL field is greated then 5 it meanins that option are present 
+Minimum:
+- 5 = 20 bytes
 
-        Wireshark Packet Capture 
+Maximum:
+- 15 = 60 bytes
 
+- Header may vary because Options field is optional
 
+---
 
-Routing Fundamentals   (part 1)
-    waht is routing 
-        the process theat th router use to determine the path theat ip packets take over a network to reach their destination 
-                routing table explain 
+### Type of Service (TOS)
 
-        Dynamic routing     share oruting info automatically and build their routing table
-        static routing  a admin manually configures routes on the router 
-    
-        a router tells the trouter ro send a packet to destination x and you shoul dsne dthe packet to next hop YU
-                                                 
-        Two types of route automatically added to routing tablke 
-            show ip route to view the routing table
+#### DSCP (Differentiated Services Code Point)
+- 6 bits
+- Used for QoS (Quality of Service)
+- Prioritizes delay-sensitive traffic
 
-            when you configure an IP address on aninterface and ewnable it with no shutdown 2 touter per interface will acutomaitcally be addded to routing tbale
-            a connected route 
-            a local route
-                • A connected route is a route to the network the interface is connected to.
-                • R1 G0/2 IP = 192.168.1.1/24
-                • Network Address = 192.168.1.0/24
-                • It provides a route to all hosts in that network (ie. 192.168.1.10, 192.168.1.100, 192.168.1.232, etc.)
-                • R1 knows: “If I need to send a packet to any host in the 192.168.1.0/24 network, I should send it out of G0/2”.
+---
 
-                • A local route is a route to the exact IP address configured on the interface.
-                • A /32 netmask is used to specify the exact IP address of the interface.
-                 → /32 means all 32 bits are “fixed”, they can’t change.
-                • Even though R1’s G0/2 is configured as 192.168.1.1/24, the connected route is to 192.168.1.1/32.
-                • R1 knows: “If I receive a packet destined for this IP address, the message is for me”.
+#### ECN (Explicit Congestion Notification)
+- 2 bits
+- Indicates network congestion without dropping packets
 
-        a route matches a packet destination if the packets destination IP address is part of the netwrok specified in the route 
+---
 
-    Route Slection
-        a packet destined for 192.1638.1.1 is matched by both routes
-            192.168.1.0/24
-            192.168.1.1/32
-        which route will R! used for a packet destined for 192.168.1.1
-            it will choose the most specific matching route 
+### Total Length Field
 
+- Size:
+  - 16 bits
 
-Static Routing (part 2 )
-    Routing Packets: default Gateway
-        end host like pc1 and pc4 can send packets directly to destinations in their connected netowrk
-        to send packets to destination outside of thier local network they must send the packets to their default gateway
-        default gateway configuraion is also called default route
+- Indicates total packet size:
+  - IPv4 header + encapsulated data
 
-    Static Route Configuration
-        each router in the path needds tow routes   : a route to 192.168.1.0/24 and a route to 192.168.4.0/24
+Minimum:
+- 20 bytes
 
-        static route configuration 
-            ip route ip address netmask next hop 
-        
-        static route configuration with exit interface 
-            ip route ip address netmask exit interface 
-        
-        static route configuration with exit interace and next hop
-            ip route inaddress netmask exitinterface next hop
-        
+Maximum:
+- 65535 bytes
 
-    Default Route 
-        a default route is a route to 0.0.0.0/0
-            it is the leaast specific route possible inclueds every possible destination IP address 
+---
 
+### Identification Field
 
+- Size:
+  - 16 bits
 
-Configuring Static ROutes Lab
+- Used during fragmentation
+- Identifies which fragments belong to same packet
 
+---
 
-TroubleShooting Static Routes Lab
+### MTU (Maximum Transmission Unit)
+
+- Maximum frame size supported by a link
+- Ethernet MTU usually:
+  - 1500 bytes
+
+- Packets larger than MTU may be fragmented
+
+---
+
+### Flags Field
+
+- Size:
+  - 3 bits
+
+#### Bit 0
+- Reserved
+- Always 0
+
+---
+
+#### DF (Don't Fragment)
+- Prevents fragmentation if set
+
+---
+
+#### MF (More Fragments)
+- Set to 1 if more fragments exist
+- Last fragment uses 0
+
+---
+
+### Fragment Offset
+
+- Size:
+  - 13 bits
+
+- Indicates fragment position in original packet
+
+---
+
+### TTL (Time To Live)
+
+- Size:
+  - 8 bits
+
+- Prevents infinite loops
+- Router decrements TTL by 1
+- Packet dropped when TTL reaches 0
+
+- Practically functions as hop count
+
+---
+
+### Protocol Field
+
+- Size:
+  - 8 bits
+
+- Identifies encapsulated Layer 4 protocol
+
+| Value | Protocol |
+|---|---|
+| 1 | ICMP |
+| 6 | TCP |
+| 17 | UDP |
+| 89 | OSPF |
+
+---
+
+### Header Checksum
+
+- Size:
+  - 16 bits
+
+- Error-checking mechanism for IPv4 header
+
+---
+
+### Source & Destination IP
+
+- Each field:
+  - 32 bits
+
+- Contains sender and receiver IP addresses
+
+---
+
+### Options Field
+
+- Optional field
+- Size:
+  - 0–320 bits
+
+- Rarely used
+- If Header Length > 5:
+  - Options field exists
+
+---
+
+### Wireshark Packet Capture
+
+- Tool used to capture and analyze packets
+- Helps inspect:
+  - Headers
+  - Protocols
+  - Encapsulation
+
+---
+
+### Routing Fundamentals
+
+#### What is Routing?
+
+- Process routers use to determine packet path to destination
+- Uses routing table to forward packets
+
+---
+
+### Routing Table
+
+- Stores routes to destination networks
+- Viewed using:
+    show ip route
+
+---
+
+### Dynamic Routing
+
+- Routers automatically share routing information
+- Build routing tables dynamically
+
+Examples:
+- OSPF
+- EIGRP
+- RIP
+
+---
+
+### Static Routing
+
+- Administrator manually configures routes
+
+---
+
+### Connected Routes
+
+- Automatically added when:
+  - Interface configured with IP
+  - Interface enabled with `no shutdown`
+
+Example:
+- Interface:
+  - `192.168.1.1/24`
+
+Connected route:
+- `192.168.1.0/24`
+
+- Router knows:
+  - Send packets for this network out that interface
+
+---
+
+### Local Routes
+
+- Route to exact interface IP address
+
+Example:
+- `192.168.1.1/32`
+
+- `/32` means exact IP only
+
+- Router knows:
+  - Packet destined for this IP is for itself
+
+---
+
+### Route Matching
+
+- A route matches if destination IP belongs to that network
+
+Example:
+- Packet:
+  - `192.168.1.1`
+
+Matches:
+- `192.168.1.0/24`
+- `192.168.1.1/32`
+
+Router selects:
+- Most specific route
+
+---
+
+### Default Gateway
+
+- End hosts send remote traffic to default gateway
+- Used for destinations outside local network
+
+---
+
+### Static Route Configuration
+
+#### Using Next-Hop IP
+
+    ip route network-address netmask next-hop
+
+Example:
+    ip route 192.168.4.0 255.255.255.0 10.0.0.2
+
+---
+
+#### Using Exit Interface
+
+    ip route network-address netmask exit-interface
+
+Example:
+    ip route 192.168.4.0 255.255.255.0 g0/0
+
+---
+
+#### Using Both
+
+    ip route network-address netmask exit-interface next-hop
+
+Example:
+    ip route 192.168.4.0 255.255.255.0 g0/0 10.0.0.2
+
+---
+
+### Default Route
+
+- Route:
+    0.0.0.0/0
+
+- Least specific route possible
+- Matches all destination networks
+
+---
+
+## Terminal / CLI Practice
+
+    # View routing table
+    show ip route
+
+    # Configure static route using next-hop
+    ip route 192.168.4.0 255.255.255.0 10.0.0.2
+
+    # Configure static route using exit interface
+    ip route 192.168.4.0 255.255.255.0 g0/0
+
+    # Configure default route
+    ip route 0.0.0.0 0.0.0.0 10.0.0.1
+
+    # View interface information
+    show ip interface brief
+
+---
+
+## 🔑 Exam Focus Summary
+**IPv4 header fields and functions are VERY important**  
+**Version field = identifies IPv4/IPv6**  
+**TTL prevents infinite routing loops**  
+**Protocol field values:**  
+- 1 = ICMP  
+- 6 = TCP  
+- 17 = UDP  
+- 89 = OSPF  
+
+**MTU usually = 1500 bytes**  
+**Fragmentation occurs if packet > MTU**  
+**Connected route = route to connected network**  
+**Local route = exact interface IP (/32)**  
+**Router chooses most specific matching route**  
+**show ip route** displays routing table  
+**Static routes are manually configured**  
+**Default route = 0.0.0.0/0**  
+
+---
+
+## What I Didn't Understand
+-
+
+---
+
+## 3 Key Things I Learned
+1. How IPv4 header fields control packet forwarding, fragmentation, and protocol identification  
+2. The difference between connected routes, local routes, and static routes  
+3. How routers select the most specific matching route when forwarding packets  
