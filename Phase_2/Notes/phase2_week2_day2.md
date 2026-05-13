@@ -5,8 +5,8 @@
 ---
 
 ## Videos Watched
-- ✅ Day 2 — Subnetting Part 1
-- ✅ Day 2 — Subnetting Part 2
+- ✅ Day 13 — Subnetting Part 1
+- ✅ Day 14 — Subnetting Part 2
 
 ---
 
