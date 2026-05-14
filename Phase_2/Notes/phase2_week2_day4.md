@@ -5,8 +5,8 @@
 ---
 
 ## Videos Watched
-- ✅ Day 4 — VLANs Part 1
-- ✅ Day 4 Lab — VLAN Configuration Lab
+- ✅ Day 16 — VLANs Part 1
+- ✅ Day 16 Lab — VLAN Configuration Lab
 
 ---
 
